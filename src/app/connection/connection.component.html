@@ -1,15 +1,20 @@
-<div id ="connection-form" class="d-flex justify-content-center align-self-center">
-  <div class="card">
-    <div class="card-body">
-      <div class="form-group">
-        <label for="email-connection">Email address</label>
-        <input type="email" class="form-control" id="email-connection" aria-describedby="emailHelp" placeholder="Email">
+<link rel="stylesheet" href="connection.component.css">
+<form>
+  <div id ="connection-form" class="d-flex justify-content-center align-self-center" type="css">
+    <div class="card" class="form">
+      <div class="card-body">
+        <h1>Me connecter à mon espace personnel</h1>
+        <div class="form-group">
+          <label for="email-connection">Adresse mail</label>
+          <input type="email" class="form-control" id="email-connection" aria-describedby="emailHelp" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="password-connection">Mot de passe</label>
+          <input type="password" class="form-control" id="password-connection" placeholder="Mot de passe" required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="send-connection-button">Se connecter</button>
       </div>
-      <div class="form-group">
-        <label for="password-connection">Password</label>
-        <input type="password" class="form-control" id="password-connection" placeholder="Mot de passe">
-      </div>
-      <button type="submit" class="btn btn-primary" id="send-connection-button">Se connecter</button>
     </div>
   </div>
-</div>
+</form>
+

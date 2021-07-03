@@ -1,1 +1,65 @@
+<link rel="stylesheet" href="inscription.component.css">
+
+
+
+<div id="inscription_form">
+  <h1>Formulaire d'inscription</h1>
+  <br>
+  <form class="row g-3 needs-validation">
+    <div class="col-md-3">
+      <label>Date de naissance :</label>
+
+      <input type="date" name="date" required="">
+    </div>
+  <br>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Prénom : </label>
+    <input type="text" class="form-control" id="validationCustom01" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Nom : </label>
+    <input type="text" class="form-control" id="validationCustom02" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Mail : </label>
+    <input type="text" class="form-control" id="validationCustom03" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom03" class="form-label">Ville : </label>
+    <input type="text" class="form-control" id="validationCustom04" required>
+    <div class="invalid-feedback">
+      Veuillez entrer un nom de ville valide.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom05" class="form-label">Code postal : </label>
+    <input type="text" class="form-control" id="validationCustom05" required>
+    <div class="invalid-feedback">
+      Veuillez renseigner un code postal valide.
+    </div>
+  </div>
+
+    <div class="col-md-3">
+      <select class="form-select" required>
+        <option value="">Veuillez selectionner votre sexe</option>
+        <option value="1">Homme</option>
+        <option value="2">Femme</option>
+        <option value="3">Cringe</option>
+      </select>
+    </div>
+
+  <div class="col-12" id="validator">
+    <button class="btn btn-primary" type="submit">Valider le formulaire</button>
+  </div>
+</form>
+</div>
 
