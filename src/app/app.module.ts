@@ -10,10 +10,12 @@ import {ConnectionComponent} from './connection/connection.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {FormsModule} from "@angular/forms";
 import {AuthGuard} from './auth.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: 'connection-component', component: ConnectionComponent},
-  {path: 'inscription-component', component: InscriptionComponent},//ajouter canActivate: [AuthGuard] pour les page a acces restreint
+  {path: '', component: HomeComponent},
+  {path: 'connection', component: ConnectionComponent},
+  {path: 'inscription', component: InscriptionComponent},//ajouter canActivate: [AuthGuard] pour les page a acces restreint
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const routes: Routes = [
     NavBarComponent,
     FooterComponent,
     ConnectionComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
