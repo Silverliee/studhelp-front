@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
+import {AuthService} from "../auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-connection',
@@ -12,8 +14,9 @@ export class ConnectionComponent implements OnInit {
 
   readonly ROOT_URL = ''
   responseJson: any
+  message: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private auth: AuthService,private http: HttpClient,private router: Router) {
   }
 
   ngOnInit(): void {
@@ -24,18 +27,18 @@ export class ConnectionComponent implements OnInit {
       email: connectionForm.value.email,
       password: connectionForm.value.password
     }
-    console.log(data);
     this.connection(data)
   }
 
   connection(data: Object) {
     this.responseJson = this.http.post(this.ROOT_URL, data)
     if (this.responseJson.access == "true") {
-      console.log("Accès validé")
+      this.message = "Connexion en cours ..."
+      this.auth.isLoggedIn = true ;
+      this.router.navigate(['/inscription-component']) //mettre le bon composant
     } else {
-      console.log("Accès refusé")
+      this.message = "Problème d'authentification !"
     }
-
   }
 
 }
