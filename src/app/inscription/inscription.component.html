@@ -1,1 +1,35 @@
-
+<div id="inscription-form" class="d-flex justify-content-center align-self-center">
+  <div class="card">
+    <div class="card-body">
+      <form #inscriptionForm="ngForm" (ngSubmit)="onSubmit(inscriptionForm)" ngNativeValidate>
+        <div class="form-group">
+          <label for="firstname">Email address</label>
+          <input name="firstname" type="text" class="form-control" id="firstname" aria-describedby="firstname"
+                 placeholder="Nom" ngModel #firstname="ngModel" required>
+        </div>
+        <div class="form-group">
+          <label for="lastname">Email address</label>
+          <input name="lastname" type="text" class="form-control" id="lastname" aria-describedby="lastname"
+                 placeholder="Prénom" ngModel #lastname="ngModel" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                 placeholder="Email" #email="ngModel" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" ngModel
+                 required #password="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input name="passwordConfirm" type="password" class="form-control" id="passwordConfirm"
+                 placeholder="Confirmer le mot de passe" ngModel required #passwordConfirm="ngModel">
+        </div>
+        <button type="submit" class="btn btn-primary" id="send-connection-button">Se connecter</button>
+      </form>
+      <p id="message">{{message}}</p>
+    </div>
+  </div>
+</div>

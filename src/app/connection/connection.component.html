@@ -1,15 +1,15 @@
 <div id="connection-form" class="d-flex justify-content-center align-self-center">
   <div class="card">
     <div class="card-body">
-      <form #connectionForm="ngForm" (ngSubmit)="onSubmit(connectionForm)" novalidate>
+      <form #connectionForm="ngForm" (ngSubmit)="onSubmit(connectionForm)" ngNativeValidate>
         <div class="form-group">
           <label for="email">Email address</label>
           <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                 placeholder="Email" ngModel required #email="ngModel">
+                 placeholder="Email" ngModel #email="ngModel" required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe"  ngModel required #password="ngModel">
+          <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe"  ngModel  #password="ngModel" required>
         </div>
         <button type="submit" class="btn btn-primary" id="send-connection-button">Se connecter</button>
       </form>
