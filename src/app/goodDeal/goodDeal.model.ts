@@ -1,9 +1,9 @@
 export interface GoodDeal {
   _id: string;
-  title: String,
-  description: String,
-  startDate: String,
-  endDate: String,
-  address: String,
+  title: string,
+  description: string,
+  startDate: string,
+  endDate: string,
+  address: string,
   _v: number;
 }

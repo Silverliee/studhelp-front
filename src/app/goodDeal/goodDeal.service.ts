@@ -2,7 +2,6 @@ import {GoodDeal} from './goodDeal.model';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
-import {runInThisContext} from 'vm';
 
 @Injectable({providedIn: 'root'})
 export class GoodDealService {
@@ -17,7 +16,7 @@ export class GoodDealService {
   }
 
   getGoodDeals() {
-    this.http.get<GoodDeal[]>('http://localhost:3000/goodDeal/').subscribe(
+    this.http.get<GoodDeal[]>('http://localhost:3000/gooddeals/').subscribe(
       (GoodDealData) => {
         this.goodDeal = GoodDealData;
         this.goodDealUpdated.next([...this.goodDeal]);
@@ -26,7 +25,7 @@ export class GoodDealService {
   }
 
   getGoodDeal(id: string) {
-    this.http.get<GoodDeal>('http://localhost:3000/goodDeal/' + id).subscribe(
+    this.http.get<GoodDeal>('http://localhost:3000/gooddeals/' + id).subscribe(
       (goodDeal) => {
         this.onlyGoodDealGet.next(goodDeal);
       }
@@ -34,16 +33,15 @@ export class GoodDealService {
   }
 
   putGoodDeal(goodDeal: GoodDeal) {
-    this.http.put<GoodDeal>('http://localhost:3000/goodDeal/' + goodDeal._id, goodDeal);
+    this.http.put<GoodDeal>('http://localhost:3000/gooddeals/' + goodDeal._id, goodDeal);
   }
 
   delGoodDeal(id: string) {
-    this.http.delete<GoodDeal>('http://localhost:3000/goodDeal/' + id);
+    this.http.delete<GoodDeal>('http://localhost:3000/gooddeals/' + id);
   }
 
   get events$() {
-    let retour = this.searchUpdated.asObservable();
-    return retour;
+    return this.searchUpdated.asObservable();
   }
 
   getGoodDealUpdatedListener() {
@@ -51,7 +49,7 @@ export class GoodDealService {
   }
 
   addGoodDeal(goodDeal: { title: String, description: String, startDate: String, endDate: String, address: String }) {
-    this.http.post<{ title: String, description: String, startDate: String, endDate: String, address: String }>('http://localhost:3000/goodDeal/', goodDeal);
+    this.http.post<{ title: String, description: String, startDate: String, endDate: String, address: String }>('http://localhost:3000/gooddeals/', goodDeal);
   }
 
   updateFilter(event: Event) {

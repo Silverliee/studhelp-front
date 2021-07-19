@@ -1,0 +1,30 @@
+<div id="container">
+
+  <mat-icon aria-hidden="false" aria-label="Example search icon" id="icon">search</mat-icon>
+
+  <form [formGroup]="stateForm"  id="yo">
+    <mat-form-field id="searchbar">
+      <mat-label>Rechercher</mat-label>
+      <input type="text"
+             matInput
+             placeholder="Ex. Forest Gump"
+             (keyup)="applyFilter($event)"
+             (keydown)="applyFilter($event)"
+             formControlName="stateGroup"
+             [matAutocomplete]="autoGroup">
+      <mat-autocomplete #autoGroup="matAutocomplete">
+        <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+          <mat-option *ngFor="let name of group.names" [value]="name">
+            {{name}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+<div>
+  <mat-slide-toggle color="primary" class="switch" [checked]="true">En stock</mat-slide-toggle>
+  <mat-slide-toggle color="primary" class="switch" [checked]="true">Loué</mat-slide-toggle>
+  <mat-slide-toggle color="warn" class="switch" [checked]="true">En retard</mat-slide-toggle>
+</div>
+

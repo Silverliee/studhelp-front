@@ -4,6 +4,7 @@ import {MatSort} from '@angular/material/sort';
 import { GoodDeal } from '../goodDeal.model';
 import { GoodDealService } from '../goodDeal.service';
 import {SelectionModel} from '@angular/cdk/collections';
+import {MatTableDataSource} from "@angular/material/table";
 
 let ELEMENT_DATA: GoodDealShowCard[] = [];
 
@@ -19,6 +20,7 @@ export class GoodDealListAdminComponent implements OnInit, OnDestroy{
   finish: boolean = false;
   goodDeals: GoodDeal[] = [];
   goodDealShowCards: GoodDealShowCard[] = [];
+  goodDealShowCard : GoodDealShowCard | undefined
   private goodDealsSub : any;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort | undefined;
@@ -41,14 +43,31 @@ export class GoodDealListAdminComponent implements OnInit, OnDestroy{
 
 
   createTabGoodDealCard(){
-  }
+    this.goodDeals.forEach(goodDeal => {
+      this.goodDealShowCard = {
+        id: goodDeal._id,
+        title: goodDeal.title,
+        description: goodDeal.description,
+        startDate : goodDeal.startDate,
+        endDate: goodDeal.endDate,
+        address: goodDeal.address
+      }
+
+      this.goodDealShowCards.push(this.goodDealShowCard)
+    })
+
+  ELEMENT_DATA = this.goodDealShowCards;
+  this.dataSource = new MatTableDataSource<GoodDealShowCard>(ELEMENT_DATA)
+
+}
 
 
   masterToggle() {
-
+    this.selection.clear();
   }
 
-  checkboxLabel(row?: GoodDealShowCard) {}
+  // @ts-ignore
+  checkboxLabel(row?: GoodDealShowCard): string {}
 
 
   ngOnDestroy(){
@@ -68,4 +87,19 @@ export class GoodDealListAdminComponent implements OnInit, OnDestroy{
 
   }
 
+  async returnSelected(){
+
+    await this.delay(50);
+
+    let listeId : string[] = [];
+    for (let item of this.selection.selected) {
+      listeId.push(item.title);
+    }
+    return listeId;
+  }
+
+
+  async sendSelected() {
+    this.goodDealService.updateSelection(await this.returnSelected());
+  }
 }
