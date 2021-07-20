@@ -1,0 +1,17 @@
+<div id="pageGoodDeal">
+  <div id="tableauGoodDeal">
+    <app-goodDealListAdmin></app-goodDealListAdmin>
+  </div>
+  <mat-card class="boutons">
+    <mat-card-content>
+      <app-goodDeal-searchbar></app-goodDeal-searchbar>
+      <br>
+      <div>
+<!--        <app-film-boutons></app-film-boutons>-->
+      </div>
+      <br>
+      <button mat-stroked-button color="warn" id='butlouer' [disabled]="!isFilmSelected"><strong>LOUER</strong></button>
+      <button mat-stroked-button color="warn" id='butlouer' [disabled]="!isFilmSelected || isFilmSelectedRented"><strong>RENDRE</strong></button>
+    </mat-card-content>
+  </mat-card>
+</div>

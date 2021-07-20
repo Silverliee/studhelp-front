@@ -1,0 +1,28 @@
+#tableau{
+  width:100%;
+  max-height: 82vh;
+  height: min-content !important;;
+}
+
+#titretableau{
+  text-align: center;
+}
+
+.example-card{
+  margin-top: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 7.5px;
+  margin-bottom: 5px;
+}
+
+#cry{
+  overflow: auto;
+  height: 82vh;
+}
+
+mat-card-header{
+  border-bottom: solid;
+  border-bottom-width: 0.5px;
+  border-bottom-color: lightgray;
+}

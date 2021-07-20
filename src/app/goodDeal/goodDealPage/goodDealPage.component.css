@@ -1,0 +1,20 @@
+#pageGoodDeal{
+  display: flex;
+  justify-content: space-around;
+}
+#tableauGoodDeal{
+  width:70%;
+}
+.boutons{
+  width: 25%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  height: fit-content;
+}
+#butlouer{
+  width: 70%;
+  height: 10%;
+  margin-top: 8px;
+  margin-bottom:4px;
+}

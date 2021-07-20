@@ -1,0 +1,22 @@
+#searchbar{
+  width:100%;
+}
+
+#icon{
+  padding:15px;
+}
+
+#yo{
+  width:90%;
+  margin-right: 25px;
+}
+
+#container{
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.switch{
+  margin: 15px;
+}

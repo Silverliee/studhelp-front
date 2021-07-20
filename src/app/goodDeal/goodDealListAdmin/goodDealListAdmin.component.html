@@ -1,0 +1,71 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>GoodDeal</mat-card-title>
+    <mat-card-subtitle>Gestion Administrateur</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div id="cry">
+      <table id="tableau" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox
+              (click)="sendSelected()"
+              (change)="$event ? masterToggle() : null"
+              [indeterminate]="selection.hasValue()"
+              [hidden]="!selection.hasValue()"
+              [aria-label]="checkboxLabel()"
+              color="warn">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="sendSelected()"
+                          (click)="$event.stopPropagation()"
+                          (dblclick)="openDialog()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                          [aria-label]="checkboxLabel(row)"
+                          color="primary">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container hidden matColumnDef="id">
+          <th hidden mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+          <td hidden mat-cell *matCellDef="let goodDeal"> {{goodDeal.id}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="titre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Titre</th>
+          <td mat-cell *matCellDef="let goodDeal"> {{goodDeal.title}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="duree">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> description</th>
+          <td mat-cell *matCellDef="let goodDeal"> {{goodDeal.description}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="limitation_age">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de début</th>
+          <td mat-cell *matCellDef="let goodDeal"> {{goodDeal.startDate}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="etat">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de fin</th>
+          <td mat-cell *matCellDef="let goodDeal"> {{goodDeal.endDate}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="date_retour">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Address</th>
+          <td mat-cell *matCellDef="let goodDeal"> {{goodDeal.address}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
